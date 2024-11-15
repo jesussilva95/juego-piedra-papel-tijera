@@ -4,36 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piedras, Papel o Tijeras</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Juego: Piedra, Papel o Tijeras</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="container">
-        <div id="login-form" class="form-container">
-            <h2>Iniciar Sesión</h2>
-            <input type="text" id="login-username" placeholder="Nombre de usuario" required>
-            <input type="password" id="login-password" placeholder="Contraseña" required>
-            <button id="login-btn">Iniciar Sesión</button>
-            <p>No tienes cuenta? <a id="show-register">Regístrate aquí</a></p>
+    <div class="contenedor">
+        <h1>Juego: Piedra, Papel o Tijeras</h1>
+        
+        <!-- Contenedor para formularios -->
+        <div id="contenedor-formularios">
+            <!-- Formulario de Inicio de Sesión -->
+            <form id="formulario-inicio-sesion">
+                <h2>Iniciar Sesión</h2>
+                <input type="text" id="usuario-inicio-sesion" placeholder="Usuario" required>
+                <input type="password" id="contraseña-inicio-sesion" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+                <p>No tienes cuenta? <a href="#" id="cambiar-a-registro">Regístrate</a></p>
+            </form>
+
+            <!-- Formulario de Registro -->
+            <form id="formulario-registro" style="display:none;">
+                <h2>Registro</h2>
+                <input type="text" id="usuario-registro" placeholder="Usuario" required>
+                <input type="password" id="contraseña-registro" placeholder="Contraseña" required>
+                <button type="submit">Registrarse</button>
+                <p>Ya tienes cuenta? <a href="#" id="cambiar-a-inicio-sesion">Iniciar Sesión</a></p>
+            </form>
         </div>
 
-        <div id="register-form" class="form-container hidden">
-            <h2>Registro</h2>
-            <input type="text" id="register-username" placeholder="Nombre de usuario" required>
-            <input type="password" id="register-password" placeholder="Contraseña" required>
-            <button id="register-btn">Registrarse</button>
-            <p>Ya tienes cuenta? <a id="show-login">Inicia sesión aquí</a></p>
-        </div>
+        <!-- Interfaz del Juego -->
+        <div id="interfaz-juego" style="display:none;">
+            <h2>¡Bienvenido, <span id="mostrar-usuario"></span>!</h2>
+            <h3>¡Elige tu jugada!</h3>
+            <div class="game-interface">
+                <div class="game-choices">
+                    <img src="img/piedra.png" alt="Piedra" class="game-choice" data-choice="piedra">
+                    <img src="img/papel.png" alt="Papel" class="game-choice" data-choice="papel">
+                    <img src="img/tijeras.png" alt="Tijeras" class="game-choice" data-choice="tijeras">
+                </div>
+            </div>
 
-        <div id="game-area" class="form-container hidden">
-            <h2>Juego: Piedras, Papel o Tijeras</h2>
-            <button class="game-btn" data-choice="rock">Piedra</button>
-            <button class="game-btn" data-choice="paper">Papel</button>
-            <button class="game-btn" data-choice="scissors">Tijeras</button>
-            <div id="result"></div>
-            <button id="logout-btn">Cerrar Sesión</button>
+            <h3>Resultado del juego:</h3>
+            <div class="game-result-container">
+                <p>Tu elección: <span id="eleccion-jugador"></span></p>
+                <img id="eleccion-jugador-img" src="" alt="Tu elección" class="result-image">
+                <p>Elección de la máquina: <span id="eleccion-maquina"></span></p>
+                <img id="eleccion-maquina-img" src="" alt="Elección de la máquina" class="result-image">
+                <p id="resultado-juego"></p>
+            </div>
+            <button id="cerrar-sesion-boton">Cerrar Sesión</button>
         </div>
     </div>
-    <script src="js/app.js"></script>
+
+    <script src="app.js"></script>
 </body>
 </html>
